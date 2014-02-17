@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title></title>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Press+Start+2P&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Hammersmith+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<style>
+			body {
+				margin: 0!important;
+				padding: 0!important;
+				font-family: 'Hammersmith One', sans-serif;
+				color: white;
+			}
+			.container {
+				margin: 0!important;
+				width: 100%!important;
+			}
+			.container > *:not(header){
+				height: 400px;
+			}
+			.row {
+				padding-left: 10px!important;
+				padding-right: 10px!important;
+				position: relative;
+			}
+			header#head {
+				background: url('concrete_wall.png') repeat;
+				background-attachment: fixed;
+			}	
+			header h1 {
+				font-size: 6em;
+				font-weight: bold;
+			}
+			
+			header h3 {
+				font-size: 3em;
+			}
+			header h4 {
+				font-size: 2.5em;
+			}
+			 
+			ul {
+				list-style: none;
+			}
+			
+			#socialMedia {
+				margin-top: 20px;
+			}
+			 
+			.row1 {
+				background: url('shattered.png') repeat;
+				background-attachment: fixed;
+			}
+			.row2 {
+				background: url('concrete_wall.png') repeat;
+				background-attachment: fixed;
+				height: 500px!important;
+			}
+			footer {
+				height: 500px!important;
+				background: url('concrete_wall.png') repeat;
+				padding-top: 50px;
+				background-attachment: fixed;
+			}
+			footer address{
+				font-size: 1.3em;
+			}
+			
+			footer address strong {
+				font-weight: bolder;
+				font-size: 1.6em;
+			}
+			ul {
+				-webkit-padding-start: 0 !important;
+			}
+			
+			footer div ul li {
+				padding: 8px 20px 8px 20px!important;
+				height: 125px;
+				color: black;
+			}
+			
+			footer h4 {
+				padding-left: 0!important;
+			}
+			
+			footer form textarea {
+				height: 150px!important;
+			}
+			
+			footer form label {
+				font-size: 1.8em;
+			}
+			
+			.arrow {
+				width: 75px;
+				height: 75px;
+				border-radius: 50%;
+				background-color: black;
+				opacity: 0.4;
+				font-size: 40px;
+				text-align: center;
+				padding-top: 19px;
+				
+			}
+			
+			#arrowParentFooter span{
+				padding-right: 3px!important;
+			}
+			
+		</style>
+		<script>
+			$(document).ready(function()
+			{
+				$("#head").height(window.innerHeight);
+				$("#head").css("padding-top", window.innerHeight/3);
+				$("#arrowParentHeader").css("-webkit-transform", "translate(-50px,"+window.innerHeight/2+"px)");
+				$("#arrowParentSection1").css("-webkit-transform", "translate(-50px, 300px)");
+				$("#arrowParentSection2").css("-webkit-transform", "translate(-50px, 400px)");
+				$("#arrowParentSection3").css("-webkit-transform", "translate(-50px, 300px)");
+				$("#arrowParentFooter").css("-webkit-transform", "translate(-50px, 350px)");
+			});
+			$(document).resize(function(){
+				$("#head").height(window.innerHeight);
+				$("#head").css("padding-top", window.innerHeight/3);
+				$("#arrowParentHeader").css("-webkit-transform", "translate(-50px,"+window.innerHeight/2+"px)");
+			});
+				
+			
+		</script>
+		
+	</head>
+	<body>
+		<div class="container">
+			<header id="head" class="row">
+			<a id="arrowParentHeader" class="arrowParent  pull-right" href="#section1"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+				
+				<div class="col-md-2 pull-right" id="socialMedia">
+					<ul class="col-md-12">
+						<li class="col-md-10"><a href="#"><img class="img-responsive col-md-10" src="facebook.png" alt=""/></a></li>
+						<li class="col-md-10"><a href="#"><img class="img-responsive col-md-10" src="twitter.png" alt=""/></a></li>
+						<li class="col-md-10"><a href="#"><img class="img-responsive col-md-10" src="linkedin.png" alt=""/></a></li>
+				</div>
+				<h1 class="col-md-6 col-md-offset-1">Studios ParceQue</h1>
+				<h3 class="col-md-7 col-md-offset-1">Développement de Sites</h3>
+				<h4 class="col-md-7 col-md-offset-1">et Applications Web/Mobile</h4>
+				</header>
+			<div id="section1" class="row row1">
+				<a id="arrowParentSection1" class="arrowParent pull-right" href="#section2"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+			
+			</div>
+			<div id="section2" class="row row2">
+				<a id="arrowParentSection2" class="arrowParent pull-right" href="#section3"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+			
+			</div>
+			<div id="section3" class="row row1">
+				<a id="arrowParentSection3" class="arrowParent pull-right" href="#footer"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+			
+			</div>
+			<footer id="footer" class="row">
+				<a id="arrowParentFooter" class="arrowParent pull-right" href="#head"><span class="arrow glyphicon glyphicon-arrow-up" ></span></a>
+			
+				<div id="address" class="col-md-4 col-md-offset-1">
+					<address class="col-md-12">
+						<strong>Studios ParceQue</strong><br/>
+						5070 rue Lafontaine<br/>
+						Montréal, Québec, Canada<br/>
+						Téléphone <small>514-591-1585</small>						
+					</address>
+					<div id="us" class="col-md-12">
+						<ul class="col-md-12">
+							<li class="col-md-12 well well-lg">
+								<img class="img-responsive col-md-4 pull-left" src="kevin.jpg" />
+								<div class="caption">
+								<h4 class="col-md-7 caption">Kevin Parent</h4>
+								<p>Beau. Beau. Beau. Beau. Beau. Beau. Beau. </p>
+								</div>
+							</li>
+							<li class="col-md-12 well well-lg">
+								<img class="img-responsive col-md-4 pull-right" src="hanane.jpg" />
+								<div class="caption">
+								<h4 class="col-md-7"> Hanane Hassaïnya</h4>
+								<p>Cougar. Cougar. Cougar. Cougar.</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			
+				<div id="contact" class="col-md-5 col-md-offset-1">
+					<form role="form">
+						<div class="form-group">
+							<label for="inputNom">Votre prénom</label>
+							<input type="text" id="inputNom" class="form-control" placeholder="Entrez votre prénom"/>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail">Votre Email</label>
+							<input type="mail" id="inputEmail" class="form-control" placeholder="Entrez votre email"/>
+						</div>
+						<div class="form-group">
+							<label for="inputComm">Votre Commentaire</label>
+							<textarea id="inputComm" class="form-control" placeholder="Entrez votre commentaire"></textarea>
+						</div>
+						<input type="submit" value="Soumettre" class="btn btn-lg btn-primary pull-right" id="btnSubmit"/>
+					</form>
+				</div>
+			
+			</footer>
+		</div>
+	</body>
+</html>
