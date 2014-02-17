@@ -9,6 +9,9 @@
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Press+Start+2P&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Hammersmith+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href="onepage-scroll.css"/>
+		<script src="jquery.arbitrary-anchor.js"></script>
+		
 		<style>
 			body {
 				margin: 0!important;
@@ -20,9 +23,6 @@
 				margin: 0!important;
 				width: 100%!important;
 			}
-			.container > *:not(header){
-				height: 400px;
-			}
 			.row {
 				padding-left: 10px!important;
 				padding-right: 10px!important;
@@ -32,6 +32,13 @@
 				background: url('concrete_wall.png') repeat;
 				background-attachment: fixed;
 			}	
+			header ul li {
+				margin-bottom: 20px;
+				-webkit-transition: 1s all;
+			}
+			header ul li:hover {
+				opacity: 0.5;
+			}
 			header h1 {
 				font-size: 6em;
 				font-weight: bold;
@@ -46,23 +53,36 @@
 			 
 			ul {
 				list-style: none;
+				-webkit-padding-start: 0 !important;
 			}
 			
 			#socialMedia {
 				margin-top: 20px;
+			}
+			
+			.subSec {
+				margin-top: 75px;
 			}
 			 
 			.row1 {
 				background: url('shattered.png') repeat;
 				background-attachment: fixed;
 			}
+			.subSec > h3{
+				font-size: 3em;
+				color: darkgray;
+				text-align: right;
+			}
+			.subSec > h4{
+				font-size: 2.5em;
+				color: darkgray;
+				text-align: right;
+			}
 			.row2 {
 				background: url('concrete_wall.png') repeat;
 				background-attachment: fixed;
-				height: 500px!important;
 			}
 			footer {
-				height: 500px!important;
 				background: url('concrete_wall.png') repeat;
 				padding-top: 50px;
 				background-attachment: fixed;
@@ -75,9 +95,7 @@
 				font-weight: bolder;
 				font-size: 1.6em;
 			}
-			ul {
-				-webkit-padding-start: 0 !important;
-			}
+			
 			
 			footer div ul li {
 				padding: 8px 20px 8px 20px!important;
@@ -109,27 +127,67 @@
 				
 			}
 			
+			.arrowParent{
+				position: absolute;
+				bottom: 30px;
+				right: 30px;
+			}
+			
 			#arrowParentFooter span{
 				padding-right: 3px!important;
+			}
+			
+			.thumbnail {
+				text-align: center;
+			}
+			
+			.thumbnail span {
+				color: darkgray;
+				font-size: 5em;
+				text-align: center;
+			}
+			
+			#sectionAvecTelephone {
+				margin-top: 100px;
 			}
 			
 		</style>
 		<script>
 			$(document).ready(function()
 			{
-				$("#head").height(window.innerHeight);
-				$("#head").css("padding-top", window.innerHeight/3);
-				$("#arrowParentHeader").css("-webkit-transform", "translate(-50px,"+window.innerHeight/2+"px)");
-				$("#arrowParentSection1").css("-webkit-transform", "translate(-50px, 300px)");
-				$("#arrowParentSection2").css("-webkit-transform", "translate(-50px, 400px)");
-				$("#arrowParentSection3").css("-webkit-transform", "translate(-50px, 300px)");
-				$("#arrowParentFooter").css("-webkit-transform", "translate(-50px, 350px)");
+				$("#head").css("padding-top", window.innerHeight/4+'px');
+				$("#head").height(window.innerHeight-parseFloat(($("#head").css("padding-top"))));
+				
+				$("#section1").height(window.innerHeight);
+				$("#section2").height(window.innerHeight);
+				$("#section3").height(window.innerHeight);
+				$("#footer").height(window.innerHeight);
+				var hauteur = window.innerHeight;
+				/*$("#head").css("padding-top", hauteur/4);
+				$("#arrowParentHeader").css("-webkit-transform", "translate(-50px,"+hauteur/1.7+"px)");
+				$("#arrowParentSection1").css("-webkit-transform", "translate(-50px,"+(hauteur*2)/2.4+"px)");
+				$("#arrowParentSection2").css("-webkit-transform", "translate(-50px, "+(hauteur*3)/3.6+"px)");
+				$("#arrowParentSection3").css("-webkit-transform", "translate(-50px, "+(hauteur*4)/4.8+"px)");
+				$("#arrowParentFooter").css("-webkit-transform", "translate(-50px, "+(hauteur*5)/5.9+"px)");*/
 			});
-			$(document).resize(function(){
+			/*$(document).resize(function(){
 				$("#head").height(window.innerHeight);
-				$("#head").css("padding-top", window.innerHeight/3);
-				$("#arrowParentHeader").css("-webkit-transform", "translate(-50px,"+window.innerHeight/2+"px)");
-			});
+				$("#head").css("padding-top", $("#head").height()/4);
+				$("#section1").height(window.innerHeight);
+				$("#section2").height(window.innerHeight);
+				$("#section3").height(window.innerHeight);
+				$("#footer").height(window.innerHeight);
+				var hauteur = window.innerHeight;
+				
+				/*$("#arrowParentHeader").css("-webkit-transform", "translate(-50px,"+window.innerHeight/2+"px)");
+				$("#arrowParentHeader").css("-webkit-transform", "translate(-50px,"+hauteur/1.7+"px)");
+				$("#arrowParentSection1").css("-webkit-transform", "translate(-50px,"+(hauteur*2)/2.4+"px)");
+				$("#arrowParentSection2").css("-webkit-transform", "translate(-50px, "+(hauteur*3)/3.6+"px)");
+				$("#arrowParentSection3").css("-webkit-transform", "translate(-50px, "+(hauteur*4)/4.8+"px)");
+				$("#arrowParentFooter").css("-webkit-transform", "translate(-50px, "+(hauteur*5)/5.9+"px)");*/
+			
+			/*});*/
+			
 				
 			
 		</script>
@@ -137,33 +195,74 @@
 	</head>
 	<body>
 		<div class="container">
-			<header id="head" class="row">
-			<a id="arrowParentHeader" class="arrowParent  pull-right" href="#section1"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+			<header id="head" class="sections row">
+				<a id="arrowParentHeader" class="arrowParent hidden-xs hidden-sm pull-right" href="##section1"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
 				
 				<div class="col-md-2 pull-right" id="socialMedia">
 					<ul class="col-md-12">
-						<li class="col-md-10"><a href="#"><img class="img-responsive col-md-10" src="facebook.png" alt=""/></a></li>
-						<li class="col-md-10"><a href="#"><img class="img-responsive col-md-10" src="twitter.png" alt=""/></a></li>
-						<li class="col-md-10"><a href="#"><img class="img-responsive col-md-10" src="linkedin.png" alt=""/></a></li>
+						<li class="col-md-10"><a href="#"><img class="img-circle col-md-10" src="facebook.png" alt=""/></a></li>
+						<li class="col-md-10"><a href="#"><img class="img-circle col-md-10" src="twitter.png" alt=""/></a></li>
+						<li class="col-md-10"><a href="#"><img class="img-circle col-md-10" src="linkedin.png" alt=""/></a></li>
+					</ul>
 				</div>
 				<h1 class="col-md-6 col-md-offset-1">Studios ParceQue</h1>
 				<h3 class="col-md-7 col-md-offset-1">Développement de Sites</h3>
 				<h4 class="col-md-7 col-md-offset-1">et Applications Web/Mobile</h4>
 				</header>
-			<div id="section1" class="row row1">
-				<a id="arrowParentSection1" class="arrowParent pull-right" href="#section2"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+			<div id="section1" class="row row1 sections">
+				<a id="arrowParentSection1" class="arrowParent hidden-xs hidden-sm pull-right" href="##section2"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+				
+				<div class="subSec col-md-10 col-md-offset-1">			
+					<h3 class="col-md-12">Développement de Site Web</h3>
+					<h4 class="col-md-6 col-md-offset-6">Responsive</h4>
+					
+					<div id="sectionAvecTelephone" class="col-md-12">
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="iMac-icon.png" class="img-responsive" />
+							
+								<div class="caption">
+									<h4>Desktop</h4>
+									<p>Développement de site web conçu pour votre ordinateur...</p>
+									<p><a href="" class="btn btn-large btn-default">En savoir plus...</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="iPad-icon.png" class="img-responsive" />
+							
+								<div class="caption">
+									<h4>Tablette</h4>
+									<p>Développement de site web conçu pour votre ordinateur...</p>
+									<p><a href="" class="btn btn-large btn-default">En savoir plus...</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img class="img-responsive" src="iPhone.png" />
+								<div class="caption">
+									<h4>Mobile</h4>
+									<p>Développement de site web conçu pour votre ordinateur...</p>
+									<p><a href="" class="btn btn-large btn-default">En savoir plus...</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			
 			</div>
-			<div id="section2" class="row row2">
-				<a id="arrowParentSection2" class="arrowParent pull-right" href="#section3"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+			<div id="section2" class="row row2 sections">
+				<a id="arrowParentSection2" class="arrowParent hidden-xs hidden-sm pull-right" href="##section3"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
 			
 			</div>
-			<div id="section3" class="row row1">
-				<a id="arrowParentSection3" class="arrowParent pull-right" href="#footer"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
+			<div id="section3" class="row row1 sections">
+				<a id="arrowParentSection3" class="arrowParent hidden-xs hidden-sm pull-right" href="##footer"><span class="arrow glyphicon glyphicon-arrow-down" ></span></a>
 			
 			</div>
-			<footer id="footer" class="row">
-				<a id="arrowParentFooter" class="arrowParent pull-right" href="#head"><span class="arrow glyphicon glyphicon-arrow-up" ></span></a>
+			<footer id="footer" class="row sections">
+				<a id="arrowParentFooter" class="arrowParent hidden-xs hidden-sm pull-right" href="##head|500"><span class="arrow glyphicon glyphicon-arrow-up" ></span></a>
 			
 				<div id="address" class="col-md-4 col-md-offset-1">
 					<address class="col-md-12">
